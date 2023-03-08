@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Libros</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header shadow text-center h4 mb-3">
+                Tienda de libros
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header h5">
+                            Libro 
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <label for="isbn">ISBN</label>
+                                        <input type="text" class="form-control" id="isbn" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="titulo">Título</label>
+                                        <input type="text" class="form-control" id="titulo" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="precioCompra">Precio de Compra</label>
+                                        <input type="number" class="form-control" id="precioCompra" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="precioVenta">Precio de Venta</label>
+                                        <input type="number" class="form-control" id="precioVenta" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="precioVenta">Precio de actual</label>
+                                        <input type="number" class="form-control" id="precioVenta" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="cantidad">Cantidad</label>
+                                        <input type="number" class="form-control" id="precioVenta" required/>
+                                    </div>
+                                    <div class="card-footer p-3 shadow">
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                            Agregar libro
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-header shadow h5">
+                            ¿Que deseas hacer o saber?
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                            <div class="col md-6">
+                                    <div class="input-group ">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Eliminar</button>
+                                        <input type="text" class="form-control" placeholder="ISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Mas vendido</button>
+                                        <input type="text" class="form-control" placeholder="ISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Mas econmico</button>
+                                        <input type="text" class="form-control" placeholder="ISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Mas costoso</button>
+                                        <input type="text" class="form-control" placeholder="ISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Buscar</button>
+                                        <input type="text" class="form-control" placeholder="Titulo" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <button class="btn btn-danger" type="button" id="button-addon1">Buscar</button>
+                                        <input type="text" class="form-control" placeholder="TISBN" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div class="row g-2">
+                            <div class="card shadow mt-2 p-0">
+                                <div class="card-header p-3 h5">
+                                    <i class="fa-solid fa-rectangle-list"></i>
+                                    Listado de libros
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-striped table-hover" id="id-table-empleados">
+                                        <thead class="bg-secondary text-white">
+                                            <tr>
+                                                <th>ISBN</th>
+                                                <th>Titulo</th>
+                                                <th>Precio compra</th>
+                                                <th>Precio venta</th>
+                                                <th>Precio actual</th>
+                                                <th>Comprados</th>
+                                                <th>Vendidos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="8" align="center">
+                                                    No ha ingresado ningun libro </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
