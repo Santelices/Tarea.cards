@@ -1,63 +1,62 @@
-class RepositorioLibro {
-    constructor() {
-      this.libros = [];
-    }
-  
-    agregarLibro(libro) {
+class LibreriaRepository {
+  constructor() {
+    this.libros = JSON.parse(localStorage.getItem('libros')) || [];
+  }
+
+  agregarLibro(libro) {
+    const libroEncontrado = this.buscarLibroPorISBN(libro.isbn);
+    if (!libroEncontrado) {
       this.libros.push(libro);
-    }
-  
-    eliminarLibro(ISBN) {
-      const index = this.libros.findIndex((libro) => libro.ISBN === ISBN);
-      if (index !== -1) {
-        this.libros.splice(index, 1);
-      }
-    }
-  
-    buscarLibroPorTitulo(titulo) {
-      return this.libros.filter((libro) => libro.titulo === titulo);
-    }
-  
-    buscarLibroPorISBN(ISBN) {
-      return this.libros.find((libro) => libro.ISBN === ISBN);
-    }
-  
-    abastecer(ISBN, cantidad, fechaRealizacion) {
-      const libro = this.buscarLibroPorISBN(ISBN);
-      if (libro) {
-        libro.cantidadActual += cantidad;
-        libro.transacciones.push(
-          new TransaccionLibro(true, fechaRealizacion, cantidad)
-        );
-      }
-    }
-  
-    vender(ISBN, cantidad, fechaRealizacion) {
-      const libro = this.buscarLibroPorISBN(ISBN);
-      if (libro && libro.cantidadActual >= cantidad) {
-        libro.cantidadActual -= cantidad;
-        libro.transacciones.push(
-          new TransaccionLibro(false, fechaRealizacion, cantidad)
-        );
-        return true;
-      }
-      return false;
-    }
-  
-    calcularTransacciones(ISBN) {
-      const libro = this.buscarLibroPorISBN(ISBN);
-      if (libro) {
-        return libro.transacciones.length;
-      }
-      return 0;
-    }
-  
-    libroCostoso() {
-      if (this.libros.length === 0) {
-        return null;
-      }
-      return this.libros.reduce((libro1, libro2) =>
-        libro1.precioVenta > libro2.precioVenta ? libro1 : libro2
-      );
+      localStorage.setItem('libros', JSON.stringify(this.libros));
     }
   }
+
+  eliminarLibro(isbn) {
+    const indice = this.libros.findIndex((libro) => libro.isbn === isbn);
+    if (indice !== -1) {
+      this.libros.splice(indice, 1);
+      localStorage.setItem('libros', JSON.stringify(this.libros));
+    }
+  }
+
+  buscarLibroPorTitulo(titulo) {
+    return this.libros.find((libro) => libro.titulo === titulo);
+  }
+
+  buscarLibroPorISBN(isbn) {
+    return this.libros.find((libro) => libro.isbn === isbn);
+  }
+
+  abastecerLibro(isbn, cantidad, precioCompra) {
+    const libroEncontrado = this.buscarLibroPorISBN(isbn);
+    if (libroEncontrado) {
+      libroEncontrado.abastecer(cantidad, precioCompra);
+      localStorage.setItem('libros', JSON.stringify(this.libros));
+    }
+  }
+
+  venderLibro(isbn, cantidad) {
+    const libroEncontrado = this.buscarLibroPorISBN(isbn);
+    if (libroEncontrado) {
+      libroEncontrado.vender(cantidad);
+      localStorage.setItem('libros', JSON.stringify(this.libros));
+    }
+  }
+
+  calcularCantidadTransaccionesAbastecimiento(isbn) {
+    const libroEncontrado = this.buscarLibroPorISBN(isbn);
+    if (libroEncontrado) {
+      return libroEncontrado.calcularCantidadTransaccionesAbastecimiento();
+    }
+    return 0;
+  }
+
+  buscarLibroMasCostoso() {
+    return this.libros.reduce((libroMasCostoso, libro) => {
+      if (libro.precioVenta > libroMasCostoso.precioVenta) {
+        return libro;
+      }
+      return libroMasCostoso;
+    }, { precioVenta: 0 });
+  }
+}
