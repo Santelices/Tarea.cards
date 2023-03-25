@@ -1,0 +1,51 @@
+@startuml
+
+class Libro{
+    ISBN: String
+    titulo: String
+    precioComra: double
+    precioVenta: double
+    cantidadActual: int
+}
+
+class TransaccionLibro{
+    tipoTransaccion: bool
+    fechaRealizacion: date
+    cantidadTransaccion: int
+}
+
+class RepositorioLibro{
+    libros: list
+
+    constructor()
+    +agregarLibro()
+    +eliminarLibro()
+    +buscarLibro(titulo)
+    +buscarLibro(ISBN)
+
+    +abastecer()
+    +vender()
+    +calcularTransacciones()
+    +libroCostoso()
+}
+
+class CasoDeUsoLibros{
+    repositorioLibro: RepositorioLibro
+    constructor(repositorioLibro: RepositorioLibro)
+
+    +agregarLibro()
+    +eliminarLibro()
+    +buscarLibro(titulo)
+    +buscarLibro(ISBN)
+
+    +abastecer()
+    +vender()
+    +calcularTransacciones()
+    +libroCostoso()
+}
+
+Libro <-- RepositorioLibro
+Libro "1"--o "0..*" TransaccionLibro
+RepositorioLibro "0..*" --o "1" CasoDeUsoLibros
+
+@enduml

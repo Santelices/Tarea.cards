@@ -7,11 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         crossorigin="anonymous" />
-    <title>Document</title>
+    <title>Empresa de Transporte</title>
 </head>
 <body>
     <div class="container">
-
             <div class = "card mt-4">
                 <div class = "card-header text-center h5 shadow">
                     Empresa de Transporte
@@ -21,33 +20,29 @@
                         <div class = "col-md-5">
                             <h2 class="card-title">Camion</h2>
                             <img src="https://cdn-icons-png.flaticon.com/512/4529/4529118.png" alt="no puede cargar" width="350" height="300">
-                            <button type="button" class="btn btn-primary" class=""data-bs-toggle="collapse" data-bs-target="#info1" aria-expanded="false" aria-controls="info1">
-                                Informacion del Camion
-                            </button>
                         </div>  
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Informacion</h5>
-                                    <div class="collapse" id="info1" data-bs-parent="#accordion">
-                                        <div class="row g-2">
+                                    <div class="row g-2">
                                             <div class="col-md-4 m-3">
                                                 <label for="" class="form-label">Matricula</label>
-                                                <input type="text" class="form-control" name="numero_factura" placeholder="Ingresa matricula" required>
+                                                <input type="text" class="form-control" id="matricula" required>
                                             </div>
                                             <div class="col-md-6 m-3">
-                                                <label for="" class="form-label">Capacidad de carga(KG)</label>
-                                                <input type="number" class="form-control" id="capacidad "name="capacidadCarga" min="0" step ="1" placeholder="Ingresa la capacidad de carga" required>
+                                                <label for="" class="form-label">Capacidad(KG)</label>
+                                                <input type="number" class="form-control" id="capacidad" min="0" step ="1" required>
                                             </div>
                                             <div class="col-md-6 m-3">
-                                                <label for="" class="form-label">Consumo de gasolina(Gal/Km)</label>
-                                                <input type="number" class="form-control" id="consumo" name="consumoGasolina"  min="0" step ="0.01" placeholder="Ingresa el consumo" required>
+                                                <label for="" class="form-label">Gasolina(Gal/Km)</label>
+                                                <input type="number" class="form-control" id="consumo" min="0" step ="0.01" required>
                                             </div>
                                             <div class="col-md-4 m-3">
                                                 <label for="" class="form-label">Carga actual(KG)</label>
-                                                <input type="number" class="form-control" id="carga" name="cargaActual"  min="0" step ="1" placeholder="Ingresa la carga" required>
+                                                <input type="number" class="form-control" id="carga" min="0" step ="0.01" required>
                                             </div>
-                                            <button type="button" class="btn btn-success" class=""data-bs-toggle="collapse" data-bs-target="#info1" aria-expanded="false" aria-controls="info1">
+                                            <button type="button" class="btn btn-success"  id="agregar" data-bs-toggle="collapse" data-bs-target="#info1" aria-expanded="false" aria-controls="info1">
                                                 <i class="fa-solid fa-circle-plus"></i>
                                                 Agregar Camion
                                             </button>
@@ -58,37 +53,34 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-shadow mt-3">
-                <div class="card-header h5">
-                    <i class="fa-solid fa-rectangle-list"></i> Camiones
+                <div class="card-footer">
+                    <div class="card-shadow mt-3">
+                        <div class="card-header h5">
+                            <i class="fa-solid fa-rectangle-list"></i> Camiones
+                                <table class="table table-striped table-hover" id="tabla-camiones">
+                                    <thead class="bg-secondary text-white">
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Capacidad</th>
+                                            <th>Gasolina</th>
+                                            <th>Carga Actual</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <table class="table table-striped table-hover" id="id-table-cuentas-banco">
-                    <thead class="bg-secondary text-white">
-                        <tr>
-                            <th>Buscar mejor camion</th>
-                            <th>Matricula</th>
-                            <th>Capacidad/Carga</th>
-                            <th>Gasolina</th>
-                            <th>Carga Actual</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="8" align="center">
-                                No ha ingresado ningun camión    </td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
             </div>
         </div>
     </div>
-
-    </div>
+    <script src="./app.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>

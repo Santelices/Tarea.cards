@@ -1,0 +1,40 @@
+@startuml
+
+class Estudiante{
+    matricula: int
+    nombre: string
+    nota: double
+    
+}
+
+class RepositorioEstudiante{
+    Estudiantes : list 
+
+    constructor()
+    +agregar(estudiante)  
+    +eliminar(estudiante) 
+    +editar(nota)
+
+    +calculoPromedioCurso(nota)
+    +calculoSobrePromedio(nota)
+    
+    
+}
+
+class CasoUsoEstudiante{
+    repositorioEstudiante : RepositorioEstudiante
+    
+    construtor(repositorioEstudiante)
+    
+    +agregar(estudiante)  
+    +eliminar(estudiante) 
+    +editar(nota)
+
+    +calculoPromedioCurso(nota)
+    +calculoSobrePromedio(nota)
+}
+
+RepositorioEstudiante --> Estudiante
+CasoUsoEstudiante "1" o-- "0..*" RepositorioEstudiante
+
+@enduml

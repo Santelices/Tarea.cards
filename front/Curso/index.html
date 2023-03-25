@@ -4,102 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
+    <title>
+        Notas de estudiantes
+    </title>
 </head>
-<body>
-    <div class="container ">
-        <div class="card mt-4">
-            <div class="card-header shadow text-center h5">
-                Sistema de notas de curso
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mt-4">
-                        <div class="card-header h5">
-                            Estudiante
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label for="" class="form-label"> Matricula </label>
-                                    <input type="text" class="form-control" id="Matricula" placeholder="Ingresa tu matricula" required>
+    <body>
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header text-center h4">Sistema de notas de curso</div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="matricula" placeholder=" " required>
+                                    <label for="matricula">Matrícula</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Cedula</label>
-                                    <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Ingresa cedula" required>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nombre" placeholder=" " required>
+                                    <label for="nombre">Nombre del estudiante</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Nombre de estudiante</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa nombre" required>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="nota" placeholder=" " min="0" max="5" step="0.01" required>
+                                    <label for="nota">Nota del estudiante</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Nota de curso</label>
-                                    <input type="number" class="form-control" id="consumo" name="consumoGasolina"  min="0" max="5" step ="0.01" placeholder="Ingresa el consumo" required>
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-floating mr-0">
+                                        <button type="submit" class="btn btn-success d-inline-block" id="agregar">
+                                            <i class="fas fa-circle-plus"></i> 
+                                            Agregar 
+                                        </button>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <button type="submit" class="btn btn-primary d-inline-block" id="editar">
+                                            <i class="fas fa-edit"></i> 
+                                            Editar nota
+                                        </button>
+                                    </div>
+                                    <div class="form-floating ">
+                                        <button type="submit" class="btn btn-danger d-inline-block" id="eliminar">
+                                            <i class="fas fa-minus-circle"></i> 
+                                             Eliminar estudiante
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="promedio" class="form-label">Promedio de notas de todos los estudiantes</label>
+                                    <input type="text" class="form-control" id="promedio" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="num-sobresalientes" class="form-label">Cantidad de estudiantes con nota por encima del promedio</label>
+                                    <input type="text" class="form-control" id="num-sobresalientes" readonly>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer p-3 shadow">
-                            <button type="button" class="btn btn-success">
-                                <i class="fa-solid fa-circle-plus"></i>
-                                Agregar estudiante
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mt-4">
-                        <div class="card-header h5">
-                            Notas de los estudiantes
-                        </div>
-                        <div class="col-2 input-group p-3">
-                            <button type="button" class="btn btn-primary" id="id-btn-calcular-edad">
-                                Calcular notas de los estudiantes:
-                            </button>
-                            <input type="number" class="form-control" id="id-number-edad" name="edad" readonly>
-                        </div>
-                        <div class="col-2 input-group p-3">
-                            <button type="button" class="btn btn-primary" id="id-btn-calcular-edad">
-                                Calculo de estudiantes sobresalientes:
-                            </button>
-                            <input type="number" class="form-control" id="id-number-edad" name="edad" readonly>
-                        </div>
-                    <div class="card-body">
-                        <div class="row g-2">
-                            <div class="card shadow mt-2 p-0">
-                                <div class="card-header p-3 h5">
-                                    <i class="fa-solid fa-rectangle-list"></i>
-                                    Listado de estudiantes
-                                </div>
-                                <div class="card-body p-0">
-                                    <table class="table table-striped table-hover" id="id-table-empleados">
-                                        <thead class="bg-secondary text-white">
-                                            <tr>
-                                                <th>Matricula</th>
-                                                <th>Cedula </th>
-                                                <th>Nombre</th>
-                                                <th>Nota</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="8" align="center">
-                                                    No ha ingresado ningun estudiante </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
-    </div>
+                <div class="card-footer">
+                    <table class="table table-striped table-hover" id ='tabla-estudiantes'>
+                        <thead class="bg-secondary text-white">
+                            <tr>
+                                <th>Matrícula</th>
+                                <th>Nombre</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="./app.js" type="module"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+@startuml
+
+class Camion{
+    matricula: string
+    capacidadCarga: double
+    consumo: double
+    cargaActual: double
+}
+
+
+
+
+class RepositorioCamiones{
+    camiones : list 
+
+    constructor()
+    +agregarCamion()  
+    +eliminarCamion() 
+
+    +cargarCamion()   
+    +descargarCamion()
+    +mejorCamion()
+}
+
+class CasoDeUsoCamiones{
+    repositorioCamiones: RepositorioCamiones
+    construtor(repositorioCamiones)
+    +agregarCamion()  
+    +eliminarCamion() 
+
+    +cargarCamion()   
+    +descargarCamion()
+    +mejorCamion()
+
+}
+
+RepositorioCamiones "1" --> "0..*" Camion
+RepositorioCamiones "0..*" --o "1" CasoDeUsoCamiones
+@enduml
